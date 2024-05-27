@@ -8,8 +8,17 @@ class Controller_Home extends Controller
     }
 
     function action_index() {
-        $data = $this->model->getHome();
-        $this->view->generate("app/pages/Home/index.php", "app/layouts/home.php", $data);
+        $data = [];
+        $data["items"] = $this->model->get_home_all_products();
+        $data["new_items"] = $this->model->get_home_new_products();
+        $this->view->generate("app/pages/Home/index.php", "app/layouts/base.php", $data);
+    }
+
+
+    function action_search() {
+        $data = [];
+        $data["search_items"] = $this->model->get_search_products($_POST["search"]);
+        $this->view->generate("app/pages/Home/search.php", "app/layouts/base.php", $data);
     }
     
 }

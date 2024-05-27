@@ -1,6 +1,11 @@
 <?php
 
-class Model_About implements Model {
+class Model_About extends Model {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
     public function getData() {
         return;
     }

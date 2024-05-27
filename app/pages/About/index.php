@@ -1,10 +1,10 @@
+<div>
+    <?php
+    require_once "app/components/heading.php";
+    display_heading("О нас");
+    ?>
+</div>
 <section class="about-text">
-    <div>
-        <?php
-        require_once "app/components/heading.php";
-        display_heading("О нас");
-        ?>
-    </div>
     <div>
         <p>Добро пожаловать в наш зоомагазин,<br> где каждый шаг наполнен радостью и заботой о вашем питомце! <br>Мы
             предлагаем

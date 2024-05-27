@@ -1,12 +1,25 @@
 <?php
 
-class Model_Home implements Model {
+class Model_Home extends Model {
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function getData() {
         return false;
     }
 
-    public function getHome() {
-        $home = [new stdClass, new stdClass, new stdClass];
-        return $home;
+    public function get_home_all_products() {
+        return $this->db->get_all("SELECT * FROM zoo_product LIMIT 3");
+    }
+
+    public function get_home_new_products() {
+        $query = "SELECT * FROM zoo_product ORDER BY product_id DESC LIMIT 3";  
+        return $this->db->get_all($query);
+    }
+
+    public function get_search_products($search) {
+        $query = "SELECT * FROM zoo_product WHERE product_name LIKE :search";
+        return $this->db->get_all($query, ["search" => "%$search%"]);
     }
 }

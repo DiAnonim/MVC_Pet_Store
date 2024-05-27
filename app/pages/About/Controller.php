@@ -9,7 +9,7 @@ class Controller_About extends Controller
 
     function action_index() {
         $data = $this->model->getAbout();
-        $this->view->generate("app/pages/About/index.php", "app/layouts/about.php", $data);
+        $this->view->generate("app/pages/About/index.php", "app/layouts/base.php", $data);
     }
     
 }

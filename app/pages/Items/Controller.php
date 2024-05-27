@@ -8,12 +8,16 @@ class Controller_Items extends Controller
     }
 
     function action_index() {
-        $data = $this->model->getItems();
-        $this->view->generate("app/pages/Items/index.php", "app/layouts/items.php", $data);
+        $data = [];
+        $data["items"] = $this->model->getItems();
+        $this->view->generate("app/pages/Items/index.php", "app/layouts/base.php", $data);
     }
 
     function action_details($id) {
-        echo "One item: $id";
+        $result = $this->model->getById($id);
+        $data = [];
+        $data["item"] = $result;        
+        $this->view->generate("app/pages/Items/Details.php", "app/layouts/base.php", $data);
     }
 
     function action_in_basket($id) {

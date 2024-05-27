@@ -1,0 +1,1 @@
+<h1 style="color:red; margin: 0 auto;">Ошибка, попробуйте позже!!!</h1>

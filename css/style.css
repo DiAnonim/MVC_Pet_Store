@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: rgb(201, 198, 198);
+    background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-03/1614642911_4-p-fon-dlya-fotoshopa-kota-4.jpg");
 }
 
 .header{
@@ -46,10 +46,191 @@ body{
     background-color: antiquewhite;
     margin: 0 auto;
     width: 1200px;
-    min-height: 665px;
+    min-height: 667px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    
 }
 
 .about-text{
     padding: 30px;
     text-align: center;
 }
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.product-card{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(122, 101, 101);
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    color: rgb(179, 214, 245);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.heading{
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.item-details{
+    background-color: rgb(122, 101, 101);
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    color: rgb(179, 214, 245);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.item-details img{
+    width: 320px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin: auto;
+}
+
+
+.subheading a, .product-card a, .product-card-home a, .item-details a{
+    color: rgb(97, 216, 97);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.subheading a:hover, .product-card a:hover, .product-card-home a:hover, .item-details a:hover{
+    text-decoration: underline;
+    color: rgb(245, 179, 179);
+}
+
+
+.product-card-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(122, 101, 101);
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    color: rgb(179, 214, 245);
+    text-align: center;
+    margin-bottom: 15px;
+    
+}
+
+.product-card-home img, .product-card img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.products-home{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.search input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+}
+
+.search button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+}
+
+.registration, .login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    margin: auto;
+    padding-bottom: 20px;
+    background-color: rgb(122, 101, 101);
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    color: rgb(179, 214, 245);
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.registration input, .login input{
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    margin: auto;
+}
+
+.registration button, .login button{
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    margin: auto;
+}
+
+.registration p, .login p{
+    text-align: center;
+}
+
+.gender{
+    margin: auto;
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+}
+

@@ -9,7 +9,7 @@ class Controller_Basket extends Controller
 
     function action_index() {
         $data = $this->model->getBasket();
-        $this->view->generate("app/pages/Basket/index.php", "app/layouts/basket.php", $data);
+        $this->view->generate("app/pages/Basket/index.php", "app/layouts/base.php", $data);
     }
 
     function action_delete_item($id) {
@@ -22,7 +22,7 @@ class Controller_Basket extends Controller
 
     function ordering() {
         $data = $this->model->ordering();
-        $this->view->generate("app/pages/Basket/order.php", "app/layouts/basket.php");
+        $this->view->generate("app/pages/Basket/order.php", "app/layouts/base.php");
     }
     
 }
