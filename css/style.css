@@ -109,13 +109,13 @@ body{
 }
 
 
-.subheading a, .product-card a, .product-card-home a, .item-details a{
+.link, .subheading a, .item-details a, .product-card a, .product-card-home a, .login a, .registration a{
     color: rgb(97, 216, 97);
     text-decoration: none;
     margin: 0 10px;
 }
 
-.subheading a:hover, .product-card a:hover, .product-card-home a:hover, .item-details a:hover{
+.link a:hover, .subheading a:hover, .item-details a:hover, .product-card a:hover, .product-card-home a:hover, .login a:hover, .registration a:hover{
     text-decoration: underline;
     color: rgb(245, 179, 179);
 }
@@ -234,3 +234,23 @@ body{
     box-shadow: 0 0 10px 0 rgb(0, 0, 0);
 }
 
+.review-card{
+    width: 80%;
+    background-color: rgb(122, 101, 101);
+    border-radius: 3px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    color: rgb(179, 214, 245);
+    text-align: center;
+    display: flex;
+    align-items:start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+}

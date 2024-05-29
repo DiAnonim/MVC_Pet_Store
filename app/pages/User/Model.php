@@ -38,18 +38,21 @@ class Model_User extends Model
         $user = $this->db->get_single($sql, $args);
 
         if ($user && sha1(md5($data['password']) . $user['salt']) == $user[strtoupper('password')]) {
-            return $user;
+            $_SESSION['user'] = $user;
+            return true;
         }
         return false;
     }
 
     public function logout(){
-        return true;
+        session_destroy();
     }
 
     public function getUser()
     {
-        // Запрос к базе данных
+        if($_SESSION['user']){
+            return $_SESSION['user'];
+        }
     }
 
     public function editUser($id)

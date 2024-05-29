@@ -3,7 +3,9 @@
 class Controller_Items extends Controller
 {
     function __construct() {
+        require_once "app/pages/Basket/Model.php";
         $this->model = new Model_Items();
+        $this->cart_model = new Model_Basket();
         $this->view = new View();
     }
 
@@ -14,15 +16,26 @@ class Controller_Items extends Controller
     }
 
     function action_details($id) {
-        $result = $this->model->getById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = [
+                'product_id' => $_POST['product_id'],
+                'text' => $_POST['review']
+            ];
+            $this->model->add_review($data);
+        }
+
+        $result_items = $this->model->getById($id);
+        $result_reviews = $this->model->get_reviews($id);
         $data = [];
-        $data["item"] = $result;        
+        $data["item"] = $result_items;    
+        $data["reviews"] = $result_reviews;
         $this->view->generate("app/pages/Items/Details.php", "app/layouts/base.php", $data);
     }
 
-    function action_in_basket($id) {
-        $this->model->send_to_cart($id);
+    function action_add_to_cart($id) {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $this->cart_model->add_to_cart($id);
+        }
     }
-    
 }
 ?>

@@ -45,10 +45,14 @@ class Database
         $this->query->execute($args);
         return $this->query->fetch(PDO::FETCH_ASSOC);
     }
-    
 
     public function insert_db($sql, $args = []){
         $this->query = $this->connect()->prepare($sql);
         return ($this->query->execute($args)) ? $this->connect()->lastInsertId() : 0;
+    }
+
+    public function delete($sql, $args = []){
+        $this->query = $this->connect()->prepare($sql);
+        return $this->query->execute($args);
     }
 }

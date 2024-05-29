@@ -10,7 +10,8 @@ class Controller_User extends Controller
 
     function action_index()
     {
-        $data = $this->model->getUser();
+        $data = [];
+        $data["user"] = $this->model->getUser();
         $this->view->generate("app/pages/User/index.php", "app/layouts/base.php", $data);
     }
 

@@ -8,7 +8,8 @@ class Controller_Basket extends Controller
     }
 
     function action_index() {
-        $data = $this->model->getBasket();
+        $data = [];
+        $data["items"] = $this->model->getBasket();
         $this->view->generate("app/pages/Basket/index.php", "app/layouts/base.php", $data);
     }
 
@@ -21,7 +22,7 @@ class Controller_Basket extends Controller
     }
 
     function ordering() {
-        $data = $this->model->ordering();
+        // $data = $this->model->ordering();
         $this->view->generate("app/pages/Basket/order.php", "app/layouts/base.php");
     }
     
