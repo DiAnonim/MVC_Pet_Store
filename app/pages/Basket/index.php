@@ -1,31 +1,43 @@
 <section>
     <?php
     require_once "app/components/heading.php";
-    require_once "app/components/product_card.php";
     display_heading("Ваша корзина");
-    ?>
-    <div class="basket">
-        <?php
-        if (!empty($items["products"])) {
-            foreach ($items["products"] as $item) {
-                $product = $item['product'];
-                product_card_basket(
-                    $product['product_id'],
-                    $product['product_name'],
-                    $product['product_price'],
-                    $product['product_photo_link'],
-                    $product['product_description'],
-                    $item['quantity'],
-                    "product-card"
-                );
-                ?>
-                <button class="delete-button" data-product-id="<?php echo $product['product_id']; ?>">Удалить</button>
-                <?php
-            }
-        } else {
-            display_subheading("Ваша корзина пуста, пожалуйста, добавьте что-нибудь в нее", "/mvc/items");
-        }
+    if (!empty($items["products"])) {
         ?>
+        <div class="control-panel" style="">
+            <h2>Общая стоимость: <?= $items["total_price"] ?> €</h2>
+            <form action="" method="post">
+                <input type="hidden" name="delete_all">
+                <button class="button" type="submit">Очистить корзину</button>
+            </form>
+            <form action="" method="post">
+                <input type="hidden" name="ordering">
+                <button class="button" type="submit">Оформить заказ</button>
+            </form>
+        </div>
+
+        <div class="basket">
+            <?php foreach ($items["products"] as $item) {
+                $product = $item['product'];
+                $quantity = $item['quantity']; ?>
+
+                <div class='product-card button'>
+                    <img src='<?= $product["product_photo_link"] ?>' alt=' '>
+                    <h3><?= $product["product_name"] ?> x<?= $quantity ?></h3>
+                    <p><?= $product["product_description"] ?></p>
+                    <p class='price'><?= $product["product_price"] ?> €</p>
+                    <a href='/mvc/items/id<?= $product["product_id"] ?>'>Details</a>
+                    <form action="" method="post">
+                        <input type="hidden" name="delete" value="<?= $product['product_id']; ?>">
+                        <button class="button" type="submit">Удалить</button>
+                    </form>
+                </div>
+
+            <?php }
+    } else {
+        display_subheading("Ваша корзина пуста, пожалуйста, добавьте что-нибудь в нее", "/mvc/items");
+    }
+    ?>
     </div>
     <script></script>
 </section>

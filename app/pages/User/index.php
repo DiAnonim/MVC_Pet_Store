@@ -11,9 +11,12 @@
         <p>Gender: <?= $user['gender'] ?></p>
         <p>Phone number: <?= $user['phone_number'] ?></p>
         <p>Role: <?= $user['role'] ?></p>
+        <form action="/mvc/user/edit" method="post">
+            <button type="submit">Редактировать</button>
+        </form>
         <form action="/mvc/user/logout" method="post">
             <button type="submit">Выход</button>
-        </form> 
+        </form>
     </div>
 
 </section>

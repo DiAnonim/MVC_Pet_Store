@@ -52,6 +52,13 @@ class Controller_User extends Controller
         }
     }
 
+    function action_edit()
+    {
+        $data = [];
+        $data["user"] = $this->model->getUser();
+        $this->view->generate("app/pages/User/edit.php", "app/layouts/base.php", $data);
+    }
+
     function action_logout()
     {
         $this->model->logout();

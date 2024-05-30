@@ -55,4 +55,9 @@ class Database
         $this->query = $this->connect()->prepare($sql);
         return $this->query->execute($args);
     }
+
+    public function update($sql, $args = []){
+        $this->query = $this->connect()->prepare($sql);
+        return $this->query->execute($args);
+    }
 }

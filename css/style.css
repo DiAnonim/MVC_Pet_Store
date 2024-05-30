@@ -208,7 +208,7 @@ body{
     margin: auto;
 }
 
-.registration button, .login button{
+.registration button, .login button, .button{
     width: 80%;
     height: 30px;
     border-radius: 5px;
@@ -217,6 +217,7 @@ body{
     cursor: pointer;
     box-shadow: 0 0 10px 0 rgb(0, 0, 0);
     margin: auto;
+    margin-top: 10px;
 }
 
 .registration p, .login p{
@@ -253,4 +254,68 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
     gap: 10px;
+}
+
+.control-panel{
+    background-color: rgb(122, 101, 101);
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    border-radius: 10px;
+    color: rgb(179, 214, 245);
+    padding-top: 10px;
+}
+
+.control-panel button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+}
+
+.basket .product-card{
+    width: 80%;
+    height: 120px;
+    background-color: rgb(122, 101, 101);
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 rgb(0, 0, 0);
+    color: rgb(179, 214, 245);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.basket button{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.basket img {
+    width: 100px;
+    height: 100px;
 }
