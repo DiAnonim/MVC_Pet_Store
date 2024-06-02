@@ -56,7 +56,36 @@ class Controller_User extends Controller
     {
         $data = [];
         $data["user"] = $this->model->getUser();
-        $this->view->generate("app/pages/User/edit.php", "app/layouts/base.php", $data);
+        if (!empty($_POST) && isset($_POST['password_conf'])) {
+            if ($this->model->check_password($_POST['password_conf'], $data["user"]["PASSWORD"], $data["user"]["salt"])) {
+                $this->view->generate("app/pages/User/edit.php", "app/layouts/base.php", $data);
+                if (!empty($_POST)) {
+                    echo "test";
+                    // $new_data_user = [
+                    //     'username' => $_POST['username'],
+                    //     'email' => $_POST['email'],
+                    //     // 'password' => $_POST['password'],
+                    //     'birthday' => $_POST['birthday'],
+                    //     'gender' => $_POST['gender'],
+                    //     'phone_number' => $_POST['phone_number'],
+                    // ];
+                    // $result = $this->model->edit_user($new_data_user);
+
+                    // if($result) {
+                    //     $data["user"] = $this->model->getUser();
+                    //     $this->view->generate("app/pages/User/index.php", "app/layouts/base.php", $data);
+                    // }
+                    // else {
+                    //     $this->view->generate("app/pages/User/error.php", "app/layouts/base.php");
+                    // }
+                }
+                
+            } else {
+                $data["error"] = "Неверный пароль";
+                $this->view->generate("app/pages/User/confirmation.php", "app/layouts/base.php", $data);
+            }
+        } else
+            $this->view->generate("app/pages/User/confirmation.php", "app/layouts/base.php", $data);
     }
 
     function action_logout()

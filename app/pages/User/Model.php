@@ -37,28 +37,48 @@ class Model_User extends Model
         ];
         $user = $this->db->get_single($sql, $args);
 
-        if ($user && sha1(md5($data['password']) . $user['salt']) == $user[strtoupper('password')]) {
+        if ($user && $this->check_password($data['password'], $user[strtoupper('password')], $user['salt'])) {
             $_SESSION['user'] = $user;
             return true;
         }
         return false;
     }
 
-    public function logout(){
+    public function check_password($password1, $password2, $salt)
+    {
+        return sha1(md5($password1) . $salt) == $password2;
+    }
+
+    public function logout()
+    {
         session_destroy();
     }
 
     public function getUser()
     {
-        if($_SESSION['user']){
+        if ($_SESSION['user']) {
             return $_SESSION['user'];
         }
     }
 
-    public function editUser($id)
+    public function edit_user($data = [])
     {
-        // Запрос к базе данных
+        $sql = "UPDATE users SET username = :username, email = :email, birthday = :birthday, gender = :gender, phone_number = :phone_number, password = :password where user_id = :user_id";
+
+        $args = [
+            'user_id' => $data['user_id'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'birthday' => $data['birthday'],
+            'gender' => $data['gender'],
+            'phone_number' => $data['phone_number'],
+            'password' => $data['password']
+        ];
+
+        return $this->db->update($sql, $args);
     }
+
+
 
     public function deleteUser($id)
     {

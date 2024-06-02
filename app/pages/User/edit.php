@@ -8,13 +8,11 @@
         <input type="email" name="email" value="<?= $user['email'] ?>" placeholder="Почта (example@ex.com)" required><br>
         <input type="date" name="birthday" value="<?= $user['birthday'] ?>" placeholder="Дата рождения" required><br>
         <select class="gender" name="gender" required>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
+            <option value="female" <?= $user['gender'] == 'female' ? 'selected' : '' ?>>Female</option>
+            <option value="male" <?= $user['gender'] == 'male' ? 'selected' : '' ?>>Male</option>
         </select><br>
         <input type="text" name="phone_number" value="<?= $user['phone_number'] ?>" placeholder="Телефонный номер (+7 999 999 99 99)"><br>
-        <input type="password" name="new_password" value="" placeholder="Новый пароль(необязательно)"><br>
-        <input type="password" name="password" placeholder="Введите свой старый пароль для подверждения изменений" required><br>
-        <button  >Сохранить</button>
+        <button type="submit">Сохранить</button>
+        <a href="/mvc/user">Отмена</a>
     </form>
-
 </section>
