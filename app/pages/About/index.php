@@ -5,7 +5,7 @@
     ?>
 </div>
 <section class="login" style="width: 80%;">
-    <div >
+    <div>
         <p>Добро пожаловать в наш зоомагазин,<br> где каждый шаг наполнен радостью и заботой о вашем питомце! <br>Мы
             предлагаем
             широкий ассортимент товаров для всех видов домашних животных, <br>от пушистых котиков до пернатых
@@ -24,4 +24,28 @@
 
             Посетите наш зоомагазин сегодня и превратите заботу о вашем питомце в удовольствие!</p><br><br>
     </div>
+
+    <?php if (!empty($_SESSION['user']) && empty($data['user_rating']) && !isset($_SESSION['rated_store'])): ?>
+        <div>
+            <form class="rating" action="" method="post">
+                <h2>Просим вас оценить наш магазин</h2>
+                <select name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="button">Оценить</button>
+            </form>
+        </div>
+    <?php endif; ?>
+
+    <div>
+        <h2>Средняя оценка: <?php echo $data['average_rating'] ?? 'Нет оценок' ?></h2>
+    </div>
+
+    <?php if (isset($data['success'])): ?>
+        <p style="color: rgb(0, 255, 42);"><?php echo $data['success']; ?></p>
+    <?php endif; ?>
 </section>

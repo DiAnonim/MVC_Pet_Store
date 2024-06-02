@@ -7,7 +7,7 @@ class Database
 
     private $host = "localhost";
     private $port = "3306";
-    private $db_name = "pet_supplies";
+    private $db_name = "pet_shop";
     private $charset = "utf8mb4";
     private $user = "root";
     private $password = "";

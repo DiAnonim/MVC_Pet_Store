@@ -9,6 +9,7 @@ function product_card($id, $name, $price, $image_url, $description, $count, $cla
             <p>$description</p>
             <p class='price'>$price €</p>
             <a href='/mvc/items/id$id'>Details</a>
+            
         </div>";
     } else {
         echo "<div class='$class'>

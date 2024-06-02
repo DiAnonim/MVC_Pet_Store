@@ -13,6 +13,12 @@
         ?>
     </section>
 
+    <section class="login">
+        <?php if(!empty($user) && $user["role"] == "admin"): ?>
+            <a href="/mvc/admin">Админ панель</a>
+        <?php endif; ?>
+    </section>
+
     <?php
     display_subheading("нажмите для просмотра всех товаров", "/mvc/items");
     ?>
