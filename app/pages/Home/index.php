@@ -30,7 +30,7 @@
         <?php endforeach; ?>
     </section>
     <?php
-    display_subheading("недавно добавленные");
+    display_subheading("недавно добавленные", "");
     ?>
     <section class="products-home">
         <?php foreach ($new_items as $item): ?>

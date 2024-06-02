@@ -63,7 +63,7 @@ class Model_User extends Model
 
     public function edit_user($data = [])
     {
-        $sql = "UPDATE users SET username = :username, email = :email, birthday = :birthday, gender = :gender, phone_number = :phone_number, password = :password where user_id = :user_id";
+        $sql = "UPDATE users SET username = :username, email = :email, birthday = :birthday, gender = :gender, phone_number = :phone_number where user_id = :user_id";
 
         $args = [
             'user_id' => $data['user_id'],
@@ -72,7 +72,6 @@ class Model_User extends Model
             'birthday' => $data['birthday'],
             'gender' => $data['gender'],
             'phone_number' => $data['phone_number'],
-            'password' => $data['password']
         ];
 
         return $this->db->update($sql, $args);
