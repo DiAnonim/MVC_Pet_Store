@@ -12,15 +12,18 @@ class Model_Basket extends Model
         return false;
     }
 
+    // метод получения корзины и подсчета общей стоимости
     public function getBasket() {
         $user_id = $_SESSION['user']['user_id'];
 
+        // получаем данные корзины пользователя
         $basket = [];
         $query = "SELECT * FROM shopping_cart WHERE user_id = $user_id";
         $basket["products"] = $this->db->get_all($query);
 
         $total_price = 0;
 
+        // считаем общую стоимость
         foreach ($basket["products"] as $key => $value) {
             $product_id = $value["product_id"];
             $query = "SELECT * FROM zoo_product WHERE product_id = $product_id";
@@ -34,10 +37,11 @@ class Model_Basket extends Model
 
         $basket["total_price"] = $total_price;
 
+        // возвращаем массив с товарами и общей стоимостью 
         return $basket;
     }
 
-
+    // Удаление одного элемента
     public function deleteItem($id)
     {
         $user_id = $_SESSION['user']['user_id'];
@@ -63,6 +67,7 @@ class Model_Basket extends Model
         $this->db->update($query_update_stock, $args_update_stock);
     }
 
+    // Очистка корзины
     public function clearBasket()
     {
         $user_id = $_SESSION['user']['user_id'];
@@ -86,6 +91,7 @@ class Model_Basket extends Model
         $this->db->delete($query_clear_cart, $args);
     }
 
+    // Очищаем корзину без изменения количества товаров на складе
     public function clear_basket_without_restock()
     {
         $user_id = $_SESSION['user']['user_id'];
@@ -96,6 +102,7 @@ class Model_Basket extends Model
         $this->db->delete($query_clear_cart, $args);
     }
 
+    // Создание заказа
     public function ordering()
     {
         $user_id = $_SESSION['user']['user_id'];
@@ -113,6 +120,7 @@ class Model_Basket extends Model
         $this->clear_basket_without_restock();
     }
 
+    // Добавление в корзину
     public function add_to_cart($id)
     {
         $user_id = $_SESSION['user']['user_id'];

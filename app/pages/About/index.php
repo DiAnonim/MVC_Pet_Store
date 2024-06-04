@@ -1,9 +1,12 @@
 <div>
     <?php
+    // Подключаем необходимые компоненты
     require_once "app/components/heading.php";
     display_heading("О нас");
     ?>
 </div>
+
+<!--Текст "О нас" -->
 <section class="login" style="width: 80%;">
     <div>
         <p>Добро пожаловать в наш зоомагазин,<br> где каждый шаг наполнен радостью и заботой о вашем питомце! <br>Мы
@@ -25,6 +28,7 @@
             Посетите наш зоомагазин сегодня и превратите заботу о вашем питомце в удовольствие!</p><br><br>
     </div>
 
+    <!-- Если пользователь не оценивал магазина, выводим форму -->
     <?php if (!empty($_SESSION['user']) && empty($data['user_rating']) && !isset($_SESSION['rated_store'])): ?>
         <div>
             <form class="rating" action="" method="post">
@@ -41,10 +45,12 @@
         </div>
     <?php endif; ?>
 
+    <!-- Выводим среднюю оценку -->
     <div>
         <h2>Средняя оценка: <?php echo $data['average_rating'] ?? 'Нет оценок' ?></h2>
     </div>
 
+    <!-- Выводим сообщение об успешной оценке -->   
     <?php if (isset($data['success'])): ?>
         <p style="color: rgb(0, 255, 42);"><?php echo $data['success']; ?></p>
     <?php endif; ?>

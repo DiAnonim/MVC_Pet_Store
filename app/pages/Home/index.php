@@ -1,24 +1,26 @@
 <section>
+    <!-- Подключение компонентов -->
     <?php
     require_once "app/components/heading.php";
     require_once "app/components/product_card.php";
     require_once "app/components/search.php";
-    display_heading("Главная страница");
+    display_heading("Главная страница");?>
 
-    ?>
-
+    <!-- Поиск по названию -->
     <section>
         <?php
-        create_search_form("search", "/mvc/home/search/" ,"search");
+        create_search_form("search", "/mvc/home/search/", "search");
         ?>
     </section>
 
-    <section class="login">
-        <?php if(!empty($user) && $user["role"] == "admin"): ?>
-            <a href="/mvc/admin">Админ панель</a>
-        <?php endif; ?>
-    </section>
-
+    <!-- Проверка наличия авторизованного пользователя с ролью "админ", и вывод ссылки для добавления нового товара -->
+    <?php if (!empty($user) && $user["role"] == "admin"): ?>
+        <section class="login">
+            <h1>Добро пожаловать админ</h1>
+        </section>
+    <?php endif; ?>
+    
+    <!-- Вывод всех товаров -->
     <?php
     display_subheading("нажмите для просмотра всех товаров", "/mvc/items");
     ?>
@@ -35,6 +37,8 @@
             ); ?>
         <?php endforeach; ?>
     </section>
+
+    <!-- Вывод последних добавленных -->
     <?php
     display_subheading("недавно добавленные", "");
     ?>

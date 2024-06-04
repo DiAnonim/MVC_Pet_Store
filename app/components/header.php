@@ -19,6 +19,7 @@
         } else {
             echo "<a href='/mvc/user/registration/'>Регистрация</a>/<a href='/mvc/user/login'>Вход</a>";
         }
+        
         ?>
     </header>
 </body>

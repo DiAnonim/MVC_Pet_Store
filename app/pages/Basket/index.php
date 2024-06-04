@@ -1,9 +1,13 @@
 <section>
     <?php
+    // Подключаем необходимые компоненты
     require_once "app/components/heading.php";
     display_heading("Ваша корзина");
-    if (!empty($items["products"])) {
-        ?>
+
+    // Проверка наличия элементов в корзине
+    if (!empty($items["products"])) { ?>
+
+        <!-- Отображаем панель управления с общей стоимостью и кнопками "Очистить корзину" и "Оформить заказ" -->
         <div class="control-panel" style="">
             <h2>Общая стоимость: <?= $items["total_price"] ?> €</h2>
             <form action="" method="post">
@@ -17,6 +21,7 @@
         </div>
 
         <div class="basket">
+            <!-- Отображаем товары в корзине -->
             <?php foreach ($items["products"] as $item) {
                 $product = $item['product'];
                 $quantity = $item['quantity']; ?>
@@ -34,10 +39,11 @@
                 </div>
 
             <?php }
-    } else {
+    }
+    // Если корзина пуста, выводим соответствующее сообщение
+    else {
         display_subheading("Ваша корзина пуста, пожалуйста, добавьте что-нибудь в нее", "/mvc/items");
     }
     ?>
     </div>
-    <script></script>
 </section>

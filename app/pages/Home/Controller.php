@@ -8,6 +8,7 @@ class Controller_Home extends Controller
         $this->view = new View();
     }
 
+    // Главная страница
     function action_index() {
         $data = [];
         $data["user"] = (isset($_SESSION['user'])) ? $_SESSION['user'] : null;
@@ -16,7 +17,7 @@ class Controller_Home extends Controller
         $this->view->generate("app/pages/Home/index.php", "app/layouts/base.php", $data);
     }
 
-
+    // Поиск
     function action_search() {
         $data = [];
         $data["search_items"] = $this->model->get_search_products($_POST["search"]);
